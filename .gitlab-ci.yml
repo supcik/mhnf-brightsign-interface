@@ -33,6 +33,6 @@ deploy:
     - cp .pioenvs/megaatmega2560/firmware.hex dist/mhns-bs-fw-mega2560-${CI_COMMIT_TAG}.hex
     - cd dist
     - 7z a ../mhns-bs-fw-mega2560-${CI_COMMIT_TAG}.zip *
-  artifact:
+  artifacts:
     paths:
       - mhns-bs-fw-mega2560-${CI_COMMIT_TAG}.zip
