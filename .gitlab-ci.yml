@@ -4,7 +4,16 @@ before_script:
   - pip install -U platformio
   - platformio update
 
+test:
+  stage: test
+  script:
+    - platformio ci --project-conf=platformio.ini src
+
 compile:
   stage: build
   script:
-    - platformio ci .
+    - platformio run
+    - cp .pioenvs/megaatmega2560/firmware.hex firmware-mega2560.hex
+  artifacts:
+    paths:
+    - firmware-mega2560.hex
