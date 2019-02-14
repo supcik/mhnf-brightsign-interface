@@ -14,7 +14,6 @@ compile:
   script:
     - platformio run
   artifacts:
-    untracked: true
     paths:
     - .pioenvs
 
