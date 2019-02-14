@@ -13,8 +13,6 @@ compile:
   stage: build
   script:
     - platformio run
-    - cd build
-    - zip 
   artifacts:
     untracked: true
     paths:
