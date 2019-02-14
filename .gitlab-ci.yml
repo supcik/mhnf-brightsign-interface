@@ -13,7 +13,26 @@ compile:
   stage: build
   script:
     - platformio run
-    - cp .pioenvs/megaatmega2560/firmware.hex mhns-bs-fw-mega2560.hex
+    - cd build
+    - zip 
   artifacts:
+    untracked: true
     paths:
-    - mhns-bs-fw-mega2560.hex
+    - .pioenvs
+
+deploy:
+  stage: deploy
+  only:
+    - tags
+  dependencies:
+    - compile
+  script:
+    - apt update
+    - apt install p7zip-full
+    - mkdir dist
+    - cp .pioenvs/megaatmega2560/firmware.hex dist/mhns-bs-fw-mega2560-${CI_COMMIT_TAG}.hex
+    - cd dist
+    - 7z a ../mhns-bs-fw-mega2560-${CI_COMMIT_TAG}.zip *
+  artifact:
+    paths:
+      - mhns-bs-fw-mega2560-${CI_COMMIT_TAG}.zip
