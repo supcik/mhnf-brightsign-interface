@@ -13,7 +13,7 @@ compile:
   stage: build
   script:
     - platformio run
-    - cp .pioenvs/megaatmega2560/firmware.hex firmware-mega2560.hex
+    - cp .pioenvs/megaatmega2560/firmware.hex mhns-bs-fw-mega2560.hex
   artifacts:
     paths:
-    - firmware-mega2560.hex
+    - mhns-bs-fw-mega2560.hex
