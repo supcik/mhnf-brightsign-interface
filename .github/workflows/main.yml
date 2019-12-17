@@ -6,20 +6,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Python environment
-      uses: actions/setup-python@v1.1.1
-    - uses: actions/checkout@v1
-    - name: Install platformio
-      run: |
-        pip install -U platformio
-        platformio update
-    - name: Test
-      run: platformio ci --project-conf=platformio.ini src
-    - name: Build
-      run: platformio run
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v1
-      with:
-        name: build
-        path: .pio/build
-  
+      - name: Setup Python environment
+        uses: actions/setup-python@v1.1.1
+      - uses: actions/checkout@v1
+      - name: Install platformio
+        run: |
+          pip install -U platformio
+          platformio update
+      - name: Test
+        run: platformio ci --project-conf=platformio.ini src
+      - name: Build
+        run: platformio run
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: .pio/build
+    
