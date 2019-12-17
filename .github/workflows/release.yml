@@ -32,7 +32,7 @@ jobs:
           draft: false
           prerelease: false
       - name: Upload elf Release Asset
-        id: upload-release-asset
+        id: upload-elf-asset
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
           asset_name: firmware.elf
           asset_content_type: application/x-binary
       - name: Upload hex Release Asset
-        id: upload-release-asset
+        id: upload-hex-asset
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
