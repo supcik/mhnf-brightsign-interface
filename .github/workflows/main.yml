@@ -17,4 +17,9 @@ jobs:
       run: platformio ci --project-conf=platformio.ini src
     - name: Build
       run: platformio run
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: build
+        path: .pio/build
   
